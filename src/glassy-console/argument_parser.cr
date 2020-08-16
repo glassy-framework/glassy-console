@@ -13,6 +13,10 @@ module Glassy::Console
       }.map { |arg| parse_value(arg) }
     end
 
+    def get_option_names : Array(String)
+      @args.select { |arg|  is_option(arg) }.map { |arg| get_real_option_name(arg) }
+    end
+
     def is_option(name : String) : Bool
         name.starts_with?("--")
     end
@@ -68,6 +72,10 @@ module Glassy::Console
       end
 
       return nil
+    end
+
+    def get_bool_option (name : String): Bool
+      get_option(name) == "1"
     end
 
     def cmp_option(name1 : String, name2 : String)
