@@ -17,7 +17,7 @@ module Glassy::Console::Interfaces
       writeln(colorize(text, :white, :red))
     end
 
-    def colorize(text, fore : Symbol, back : Symbol? = nil): String
+    def colorize(text, fore : Symbol, back : Symbol? = nil) : String
       result = text.colorize.fore(fore)
 
       if back

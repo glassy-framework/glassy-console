@@ -1,13 +1,8 @@
 require "./spec_helper"
 
 class MyCommand < Glassy::Console::Command
-  def name : String
-    "my:command"
-  end
-
-  def description : String
-    "my description"
-  end
+  property name : String = "my:command"
+  property description : String = "my description"
 
   @[Argument(name: "name", desc: "Name of the person")]
   @[Argument(name: "age", desc: "Age of the person")]
@@ -21,7 +16,6 @@ class MyCommand < Glassy::Console::Command
     output.writeln("platform = #{platform}")
     output.writeln("enabled = #{enabled}")
   end
-
 end
 
 describe Glassy::Console::Command do
@@ -37,7 +31,7 @@ describe Glassy::Console::Command do
       "age = 10",
       "show = help",
       "platform = 2",
-      "enabled = true"
+      "enabled = true",
     ]
 
     output.items.should eq(expected_response)

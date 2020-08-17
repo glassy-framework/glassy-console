@@ -30,7 +30,7 @@ module Glassy::Console
       output.writeln
 
       args_text = get_metadata
-        .select { |item| item["type"] == "argument"}
+        .select { |item| item["type"] == "argument" }
         .map { |item| "<#{item["name"]}>" }
         .join(" ")
 
@@ -39,7 +39,7 @@ module Glassy::Console
       output.writeln
 
       option_texts = [
-        {"--help", "Display this help message"}
+        {"--help", "Display this help message"},
       ]
       get_metadata.each do |item|
         if item["type"] == "option"
@@ -62,7 +62,7 @@ module Glassy::Console
             def execute_arguments(args : Array(String)) : Void
               parser = Glassy::Console::ArgumentParser.new(args, [
                 {% for marg in method.args %}
-                  {% if marg.restriction.types.any?{|r| r.stringify.includes?("Bool")} %}
+                  {% if marg.restriction.types.any? { |r| r.stringify.includes?("Bool") } %}
                     "{{marg.name}}",
                   {% end %}
                 {% end %}
@@ -74,7 +74,7 @@ module Glassy::Console
                   {% nullable = false %}
                   {% for marg in method.args %}
                     {% if marg.name == ann[:name].id %}
-                      {% nullable = marg.restriction.types.any?{|r| r.stringify.includes?("Nil")} %}
+                      {% nullable = marg.restriction.types.any? { |r| r.stringify.includes?("Nil") } %}
                     {% end %}
                   {% end %}
                   "{{ann[:name].id}}" => {ArgumentValidator::ArgType::Argument, {{ nullable ? "false".id : "true".id }} },
@@ -83,7 +83,7 @@ module Glassy::Console
                   {% nullable = false %}
                   {% for marg in method.args %}
                     {% if marg.name == ann[:name].id %}
-                      {% nullable = marg.restriction.types.any?{|r| r.stringify.includes?("Nil")} %}
+                      {% nullable = marg.restriction.types.any? { |r| r.stringify.includes?("Nil") } %}
                     {% end %}
                   {% end %}
                   "{{ann[:name].id}}" => {ArgumentValidator::ArgType::Option, {{ nullable ? "false".id : "true".id }} },
@@ -104,8 +104,8 @@ module Glassy::Console
                   {% type_modifier = ".to_i" %}
                 {% end %}
 
-                {% nullable = marg.restriction.types.any?{|r| r.stringify.includes?("Nil")} %}
-                {% boolean = marg.restriction.types.any?{|r| r.stringify.includes?("Bool")} %}
+                {% nullable = marg.restriction.types.any? { |r| r.stringify.includes?("Nil") } %}
+                {% boolean = marg.restriction.types.any? { |r| r.stringify.includes?("Bool") } %}
 
                 {% for ann, idx in method.annotations(Argument) %}
                   {% if marg.name == ann[:name].id %}
@@ -144,8 +144,8 @@ module Glassy::Console
                 {% for ann, idx in method.annotations(Argument) %}
                   {% for marg in method.args %}
                     {% if marg.name == ann[:name].id %}
-                      {% nullable = marg.restriction.types.any?{|r| r.stringify.includes?("Nil")} %}
-                      {% boolean = marg.restriction.types.any?{|r| r.stringify.includes?("Bool")} %}
+                      {% nullable = marg.restriction.types.any? { |r| r.stringify.includes?("Nil") } %}
+                      {% boolean = marg.restriction.types.any? { |r| r.stringify.includes?("Bool") } %}
                       {
                         "name" => {{ann[:name]}},
                         "type" => "argument",
@@ -159,8 +159,8 @@ module Glassy::Console
                 {% for ann, idx in method.annotations(Option) %}
                   {% for marg in method.args %}
                     {% if marg.name == ann[:name].id %}
-                      {% nullable = marg.restriction.types.any?{|r| r.stringify.includes?("Nil")} %}
-                      {% boolean = marg.restriction.types.any?{|r| r.stringify.includes?("Bool")} %}
+                      {% nullable = marg.restriction.types.any? { |r| r.stringify.includes?("Nil") } %}
+                      {% boolean = marg.restriction.types.any? { |r| r.stringify.includes?("Bool") } %}
                       {
                         "name" => {{ann[:name]}},
                         "type" => "option",

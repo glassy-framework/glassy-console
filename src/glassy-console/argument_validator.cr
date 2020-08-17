@@ -14,12 +14,12 @@ module Glassy::Console
     def initialize(@rules : Hash(String, ArgRule))
     end
 
-    def validate (argv : Array(String)) : Bool
+    def validate(argv : Array(String)) : Bool
       parser = ArgumentParser.new(argv, [] of String)
       validate(parser)
     end
 
-    def validate (parser : ArgumentParser) : Bool
+    def validate(parser : ArgumentParser) : Bool
       @error_message = nil
 
       # validate argument quantity
@@ -27,7 +27,7 @@ module Glassy::Console
       if parser.get_arguments.size > argument_names.size
         message = "Too many arguments"
         if argument_names.size > 0
-          expected = argument_names.map {|n| "\"#{n}\""}.join(", ")
+          expected = argument_names.map { |n| "\"#{n}\"" }.join(", ")
           message += ", expected arguments #{expected}"
         end
         @error_message = message
@@ -62,13 +62,12 @@ module Glassy::Console
         if ArgType::Option == rule[0] && rule[1]
           value = parser.get_option(opt_name)
 
-          if value.nil? || value.size == 0
+          if !parser.is_boolean_option(opt_name) && (value.nil? || value.size == 0)
             @error_message = "The option --#{opt_name} is required"
             return false
           end
         end
       end
-
 
       return true
     end

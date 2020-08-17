@@ -14,11 +14,11 @@ module Glassy::Console
     end
 
     def get_option_names : Array(String)
-      @args.select { |arg|  is_option(arg) }.map { |arg| get_real_option_name(arg) }
+      @args.select { |arg| is_option(arg) }.map { |arg| get_real_option_name(arg) }
     end
 
     def is_option(name : String) : Bool
-        name.starts_with?("--")
+      name.starts_with?("--") || @bool_args_names.includes?(name)
     end
 
     def is_option_value(value : String, last_name : String)
@@ -36,7 +36,7 @@ module Glassy::Console
 
       real_name = get_real_option_name(name)
 
-      if @bool_args_names.includes?(real_name)
+      if @bool_args_names.map { |n| get_real_option_name(n) }.includes?(real_name)
         return true
       end
 
@@ -47,7 +47,7 @@ module Glassy::Console
       name.sub("--", "").sub(/=.*$/, "")
     end
 
-    def get_option (name : String): String?
+    def get_option(name : String) : String?
       return_next_arg = false
 
       @args.each do |arg|
@@ -62,7 +62,7 @@ module Glassy::Console
             pieces = arg.split("=")
 
             if pieces.size > 1
-              first_piece = pieces.shift()
+              first_piece = pieces.shift
               return parse_value(pieces.join("="))
             else
               return_next_arg = true
@@ -74,7 +74,7 @@ module Glassy::Console
       return nil
     end
 
-    def get_bool_option (name : String): Bool
+    def get_bool_option(name : String) : Bool
       get_option(name) == "1"
     end
 

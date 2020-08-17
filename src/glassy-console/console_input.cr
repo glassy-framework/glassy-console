@@ -4,7 +4,7 @@ module Glassy::Console
   class ConsoleInput
     include Interfaces::Input
 
-    def readln() : String?
+    def readln : String?
       gets
     end
   end

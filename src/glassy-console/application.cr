@@ -28,7 +28,7 @@ module Glassy::Console
         end
       else
         validator = ArgumentValidator.new({
-          "help" => {ArgumentValidator::ArgType::Option, false}
+          "help" => {ArgumentValidator::ArgType::Option, false},
         })
 
         if validator.validate(parser)
@@ -39,7 +39,7 @@ module Glassy::Console
       end
     end
 
-    def find_command(cmd_name : String): Command?
+    def find_command(cmd_name : String) : Command?
       @commands.each do |cmd|
         if cmd.name == cmd_name
           return cmd
@@ -72,7 +72,7 @@ module Glassy::Console
       output.writeln
       output.writeln("Options:", :yellow)
       output.display_two_columns [
-        {"--help", "display help"}
+        {"--help", "display help"},
       ]
       output.writeln
       output.writeln("Available commands:", :yellow)
@@ -85,7 +85,7 @@ module Glassy::Console
           output.writeln(" #{prefix}", :yellow)
         end
         commands = commands_by_prefix[prefix]
-        columns = commands.sort_by {|c| c.name }.map do |command|
+        columns = commands.sort_by { |c| c.name }.map do |command|
           {command.name, command.description}
         end
         output.display_two_columns(columns)

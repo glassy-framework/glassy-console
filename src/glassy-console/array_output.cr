@@ -6,7 +6,7 @@ module Glassy::Console
 
     getter buffer
 
-    def initialize ()
+    def initialize
       @buffer = ""
     end
 
@@ -26,7 +26,7 @@ module Glassy::Console
       @buffer = ""
     end
 
-    def colorize(text, fore : Symbol, back : Symbol? = nil): String
+    def colorize(text, fore : Symbol, back : Symbol? = nil) : String
       text
     end
   end

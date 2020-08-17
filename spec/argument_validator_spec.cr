@@ -7,7 +7,7 @@ describe ArgumentValidator do
   it "validate arguments" do
     validator = ArgumentValidator.new({
       "command" => {ArgType::Argument, true},
-      "other" => {ArgType::Argument, false}
+      "other"   => {ArgType::Argument, false},
     })
 
     validator.validate([] of String).should eq(false)
@@ -23,7 +23,7 @@ describe ArgumentValidator do
   it "validate options" do
     validator = ArgumentValidator.new({
       "port" => {ArgType::Option, true},
-      "host" => {ArgType::Option, false}
+      "host" => {ArgType::Option, false},
     })
 
     validator.validate([] of String).should eq(false)
@@ -33,5 +33,13 @@ describe ArgumentValidator do
 
     validator.validate(["--port", "80", "--doing"] of String).should eq(false)
     validator.error_message.should eq("The option --doing does not exists")
+
+    validator = ArgumentValidator.new({
+      "port"    => {ArgType::Option, true},
+      "enabled" => {ArgType::Option, true},
+    })
+
+    parser = Glassy::Console::ArgumentParser.new(["--port", "80"], ["enabled"])
+    validator.validate(parser).should eq(true)
   end
 end
