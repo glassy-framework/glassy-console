@@ -4,6 +4,11 @@ version: 0.1.0
 authors:
   - Anderson Danilo <contato@andersondanilo.com>
 
+dependencies:
+  glassy-kernel:
+    github: glassy-framework/glassy-kernel
+    branch: master
+
 crystal: 0.35.1
 
 license: MIT

@@ -1,0 +1,17 @@
+services:
+  console_app:
+    class: Glassy::Console::Application
+    kwargs:
+      name: 'Glassy Framework'
+      output: '@console_output'
+      commands: '@command_list'
+
+  console_input:
+    class: Glassy::Console::ConsoleInput
+
+  console_output:
+    class: Glassy::Console::ConsoleOutput
+
+tags:
+  command:
+    restriction: Glassy::Console::Command
