@@ -1,6 +1,6 @@
 # glassy-console
 
-Console commands for the glassy framewor
+Console commands for the glassy framework
 
 ## Installation
 
