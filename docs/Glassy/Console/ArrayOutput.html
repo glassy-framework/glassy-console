@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.35.0">
+<meta name="crystal_docs.project_version" content="master-dev">
+<meta name="crystal_docs.project_name" content="glassy-console">
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="glassy-console">
+  <title>Glassy::Console::ArrayOutput - glassy-console master-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          glassy-console
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="glassy-console/Glassy" data-name="glassy">
+      <a href="../../Glassy.html">Glassy</a>
+      
+        <ul>
+  
+  <li class="parent open current" data-id="glassy-console/Glassy/Console" data-name="glassy::console">
+      <a href="../../Glassy/Console.html">Console</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="glassy-console/Glassy/Console/Annotations" data-name="glassy::console::annotations">
+      <a href="../../Glassy/Console/Annotations.html">Annotations</a>
+      
+        <ul>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Annotations/Argument" data-name="glassy::console::annotations::argument">
+      <a href="../../Glassy/Console/Annotations/Argument.html">Argument</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Annotations/Option" data-name="glassy::console::annotations::option">
+      <a href="../../Glassy/Console/Annotations/Option.html">Option</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Application" data-name="glassy::console::application">
+      <a href="../../Glassy/Console/Application.html">Application</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/ArgumentParser" data-name="glassy::console::argumentparser">
+      <a href="../../Glassy/Console/ArgumentParser.html">ArgumentParser</a>
+      
+    </li>
+  
+  <li class="parent " data-id="glassy-console/Glassy/Console/ArgumentValidator" data-name="glassy::console::argumentvalidator">
+      <a href="../../Glassy/Console/ArgumentValidator.html">ArgumentValidator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/ArgumentValidator/ArgRule" data-name="glassy::console::argumentvalidator::argrule">
+      <a href="../../Glassy/Console/ArgumentValidator/ArgRule.html">ArgRule</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/ArgumentValidator/ArgType" data-name="glassy::console::argumentvalidator::argtype">
+      <a href="../../Glassy/Console/ArgumentValidator/ArgType.html">ArgType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/ArrayInput" data-name="glassy::console::arrayinput">
+      <a href="../../Glassy/Console/ArrayInput.html">ArrayInput</a>
+      
+    </li>
+  
+  <li class=" current" data-id="glassy-console/Glassy/Console/ArrayOutput" data-name="glassy::console::arrayoutput">
+      <a href="../../Glassy/Console/ArrayOutput.html">ArrayOutput</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Bundle" data-name="glassy::console::bundle">
+      <a href="../../Glassy/Console/Bundle.html">Bundle</a>
+      
+    </li>
+  
+  <li class="parent " data-id="glassy-console/Glassy/Console/Command" data-name="glassy::console::command">
+      <a href="../../Glassy/Console/Command.html">Command</a>
+      
+        <ul>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Command/Argument" data-name="glassy::console::command::argument">
+      <a href="../../Glassy/Console/Command/Argument.html">Argument</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Command/ArgumentValidator" data-name="glassy::console::command::argumentvalidator">
+      <a href="../../Glassy/Console/Command/ArgumentValidator.html">ArgumentValidator</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Command/Input" data-name="glassy::console::command::input">
+      <a href="../../Glassy/Console/Command/Input.html">Input</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Command/Option" data-name="glassy::console::command::option">
+      <a href="../../Glassy/Console/Command/Option.html">Option</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Command/Output" data-name="glassy::console::command::output">
+      <a href="../../Glassy/Console/Command/Output.html">Output</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/ConsoleInput" data-name="glassy::console::consoleinput">
+      <a href="../../Glassy/Console/ConsoleInput.html">ConsoleInput</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/ConsoleOutput" data-name="glassy::console::consoleoutput">
+      <a href="../../Glassy/Console/ConsoleOutput.html">ConsoleOutput</a>
+      
+    </li>
+  
+  <li class="parent " data-id="glassy-console/Glassy/Console/Interfaces" data-name="glassy::console::interfaces">
+      <a href="../../Glassy/Console/Interfaces.html">Interfaces</a>
+      
+        <ul>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Interfaces/Input" data-name="glassy::console::interfaces::input">
+      <a href="../../Glassy/Console/Interfaces/Input.html">Input</a>
+      
+    </li>
+  
+  <li class=" " data-id="glassy-console/Glassy/Console/Interfaces/Output" data-name="glassy::console::interfaces::output">
+      <a href="../../Glassy/Console/Interfaces/Output.html">Output</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Glassy::Console::ArrayOutput
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Glassy/Console/ArrayOutput.html">Glassy::Console::ArrayOutput</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../Glassy/Console/Interfaces/Output.html">Glassy::Console::Interfaces::Output</a></li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#buffer:String-instance-method" class="signature"><strong>#buffer</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear-instance-method" class="signature"><strong>#clear</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#colorize(text,fore:Symbol,back:Symbol?=nil):String-instance-method" class="signature"><strong>#colorize</strong>(text, fore : Symbol, back : Symbol? = <span class="n">nil</span>) : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#items:Array(String)-instance-method" class="signature"><strong>#items</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#write(text:String):Void-instance-method" class="signature"><strong>#write</strong>(text : String) : Void</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#writeln(text:String=&quot;&quot;):Void-instance-method" class="signature"><strong>#writeln</strong>(text : String = <span class="s">&quot;&quot;</span>) : Void</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../../Glassy/Console/Interfaces/Output.html">Glassy::Console::Interfaces::Output</a></code></h3>
+  
+  
+    <a href="../../Glassy/Console/Interfaces/Output.html#colorize(text,fore:Symbol,back:Symbol?=nil):String-instance-method" class="tooltip">
+      <span>colorize(text, fore : Symbol, back : Symbol? = <span class="n">nil</span>) : String</span>
+    colorize</a>, 
+    
+  
+    <a href="../../Glassy/Console/Interfaces/Output.html#display_two_columns(items:Array(Tuple(String,String)))-instance-method" class="tooltip">
+      <span>display_two_columns(items : Array(Tuple(String, String)))</span>
+    display_two_columns</a>, 
+    
+  
+    <a href="../../Glassy/Console/Interfaces/Output.html#error(text:String):Void-instance-method" class="tooltip">
+      <span>error(text : String) : Void</span>
+    error</a>, 
+    
+  
+    <a href="../../Glassy/Console/Interfaces/Output.html#write(text:String,fore_color:Symbol):Void-instance-method" class="tooltip">
+      <span>write(text : String, fore_color : Symbol) : Void<br/>write(text : String) : Void</span>
+    write</a>, 
+    
+  
+    <a href="../../Glassy/Console/Interfaces/Output.html#writeln(text:String,fore_color:Symbol):Void-instance-method" class="tooltip">
+      <span>writeln(text : String, fore_color : Symbol) : Void<br/>writeln(text : String = <span class="s">&quot;&quot;</span>) : Void</span>
+    writeln</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="buffer:String-instance-method">
+      <div class="signature">
+        
+        def <strong>buffer</strong> : String
+
+        <a class="method-permalink" href="#buffer:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear-instance-method">
+      <div class="signature">
+        
+        def <strong>clear</strong>
+
+        <a class="method-permalink" href="#clear-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="colorize(text,fore:Symbol,back:Symbol?=nil):String-instance-method">
+      <div class="signature">
+        
+        def <strong>colorize</strong>(text, fore : Symbol, back : Symbol? = <span class="n">nil</span>) : String
+
+        <a class="method-permalink" href="#colorize(text,fore:Symbol,back:Symbol?=nil):String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="items:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>items</strong> : Array(String)
+
+        <a class="method-permalink" href="#items:Array(String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="write(text:String):Void-instance-method">
+      <div class="signature">
+        
+        def <strong>write</strong>(text : String) : Void
+
+        <a class="method-permalink" href="#write(text:String):Void-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="writeln(text:String=&quot;&quot;):Void-instance-method">
+      <div class="signature">
+        
+        def <strong>writeln</strong>(text : String = <span class="s">&quot;&quot;</span>) : Void
+
+        <a class="method-permalink" href="#writeln(text:String=&quot;&quot;):Void-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
