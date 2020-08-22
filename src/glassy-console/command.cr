@@ -88,7 +88,7 @@ module Glassy::Console
                   {% end %}
                   "{{ann[:name].id}}" => {ArgumentValidator::ArgType::Option, {{ nullable ? "false".id : "true".id }} },
                 {% end %}
-              })
+              } of String => Tuple(ArgumentValidator::ArgType, Bool))
 
               unless validator.validate(parser)
                 output.error(validator.error_message.not_nil!)
