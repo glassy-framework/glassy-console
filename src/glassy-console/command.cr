@@ -71,6 +71,9 @@ module Glassy::Console
             end
 
             def make_validator
+              {% for ann, idx in method.annotations(Argument) %}
+                puts "found arg ann {{ann[:name].id}}"
+              {% end %}
               ArgumentValidator.new({
                 {% for ann, idx in method.annotations(Argument) %}
                   {% nullable = false %}
