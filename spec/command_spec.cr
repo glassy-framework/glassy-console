@@ -24,6 +24,9 @@ describe Glassy::Console::Command do
     output = Glassy::Console::ArrayOutput.new
 
     command = MyCommand.new(input, output)
+
+    command.make_validator.get_argument_names.should eq ["name", "age"]
+
     command.execute_arguments(["my name", "10", "--show", "help", "--platform", "2", "--enabled"])
 
     expected_response = [

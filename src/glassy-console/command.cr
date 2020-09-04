@@ -59,8 +59,8 @@ module Glassy::Console
       macro method_added(method)
         {% verbatim do %}
           {% if "execute" == method.name %}
-            def execute_arguments(args : Array(String)) : Void
-              parser = Glassy::Console::ArgumentParser.new(args, [
+            def make_parser(args : Array(String))
+              Glassy::Console::ArgumentParser.new(args, [
                 {% for marg in method.args %}
                   {% if marg.restriction.types.any? { |r| r.stringify.includes?("Bool") } %}
                     "{{marg.name}}",
@@ -68,8 +68,10 @@ module Glassy::Console
                 {% end %}
                 "help"
               ])
+            end
 
-              validator = ArgumentValidator.new({
+            def make_validator
+              ArgumentValidator.new({
                 {% for ann, idx in method.annotations(Argument) %}
                   {% nullable = false %}
                   {% for marg in method.args %}
@@ -89,6 +91,11 @@ module Glassy::Console
                   "{{ann[:name].id}}" => {ArgumentValidator::ArgType::Option, {{ nullable ? "false".id : "true".id }} },
                 {% end %}
               } of String => Tuple(ArgumentValidator::ArgType, Bool))
+            end
+
+            def execute_arguments(args : Array(String)) : Void
+              parser = make_parser(args)
+              validator = make_validator
 
               unless validator.validate(parser)
                 output.error(validator.error_message.not_nil!)
