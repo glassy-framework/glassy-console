@@ -18,7 +18,7 @@ module Glassy::Console
     end
 
     def is_option(name : String) : Bool
-      name.starts_with?("--") || @bool_args_names.includes?(name)
+      name.starts_with?("--")
     end
 
     def is_option_value(value : String, last_name : String)
@@ -30,7 +30,7 @@ module Glassy::Console
     end
 
     def is_boolean_option(name : String) : Bool
-      if !is_option(name)
+      if !is_option(name) && !@bool_args_names.includes?(name)
         return false
       end
 

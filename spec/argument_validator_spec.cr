@@ -42,4 +42,15 @@ describe ArgumentValidator do
     parser = Glassy::Console::ArgumentParser.new(["--port", "80"], ["enabled"])
     validator.validate(parser).should eq(true)
   end
+
+  it "accept help as a value" do
+    validator = ArgumentValidator.new({
+      "port" => {ArgType::Option, true},
+      "host" => {ArgType::Option, false},
+    })
+
+    parser = Glassy::Console::ArgumentParser.new(["--port", "help", "--host"], ["help"])
+
+    validator.validate(parser).should eq(true)
+  end
 end
