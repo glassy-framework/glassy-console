@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  spec:
+    image: crystallang/crystal:latest
+    volumes:
+      - ..:/code
