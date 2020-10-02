@@ -1,5 +1,7 @@
 # glassy-console
 
+[![CircleCI](https://circleci.com/gh/glassy-framework/glassy-console.svg?style=svg)](https://circleci.com/gh/glassy-framework/glassy-console)
+
 Console commands for the glassy framework
 
 ## Installation
